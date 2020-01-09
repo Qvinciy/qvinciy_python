@@ -1,0 +1,198 @@
+
+body{
+    background-color: #0d0d17;
+    font-weight: 300;
+    font-size: 16px;
+    overflow: hidden;
+    /* color: #555; */
+    -webkit-font-smoothing: antialiased;
+    -webkit-overflow-scrolling: touch;
+}
+/* Авторизация */
+.autho{
+
+    background-color: #0d0d17;
+    height: 94vh;
+    z-index: 1;
+}
+.logo{
+    background-color: #0d0d17;
+    margin: 0 auto;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.qcol-autho{
+    display: flex;
+    flex-flow: wrap;
+    
+}
+.qcol-autho input{
+    width: 100%;
+    margin-bottom: 10px;
+    text-align: center;
+    background-color: rgba(0,0,0,0);
+    border: 0;
+    border-bottom: 2px solid #a8a8a8;
+    height: 50px;
+    width: 80%;
+    transition: 0.3s;
+    color: white;
+    opacity: 1;
+
+}
+.qcol-autho input:hover{
+    border-bottom: 2px solid white;
+}
+.qcol-autho button{
+    width: 100%;
+    width: 80%;
+    margin-top: 30px;
+    margin-bottom: 20px;
+    color: #ffffff;
+    font-family: Forum;
+    font-size: 20px;
+    padding: 10px 0px 10px 0px;
+    font-weight: 400;
+    box-shadow: inset 0 0 5px #c5994e;
+    border: 1px solid #c5994e;
+    background-color: #0d0d17;
+    border-bottom-left-radius: 20px;
+    border-top-right-radius: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.qcol-autho button:hover{
+    border-top-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    border-bottom-left-radius: 0px;
+    border-top-right-radius: 0px;
+    background-color: #1c1c2c;
+}
+.qcol-info{
+    color: white;
+    text-align: center;
+    min-height: 300px;
+    display: flex;
+    flex-flow: wrap;
+    align-items: center;
+    transition: 0.3s;
+}
+.qcol-info:hover div.info_line_hover1{
+    transform: translateX(-30px);
+}
+.qcol-info:hover div.info_line_hover2{
+    transform: translateX(30px);
+}
+.qcol-info span{
+    color: #c5994e;
+}
+.qcol-info_line{
+    background-color: #c5994e;
+    margin: 0 auto;
+    width: 80px;
+    transition: 0.3s;
+    height: 2px;
+    
+}
+.qcol-autho{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    justify-content: center;
+}
+.qcol-autho h2{
+    color: #ffffff;
+    font-family: Forum;
+    font-size: 39px;
+    font-weight: 400;
+    letter-spacing: 0.98px;
+
+}
+.registration_btn{
+    color: #ffffff;
+    font-family: Forum;
+    font-size: 20px;
+    font-weight: 400;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    padding: 3px;
+    transition: 0.3s;
+}
+.registration_btn:hover{
+    color: #c5c5c5;
+}
+.later_password{
+    color: #696969;
+    padding: 3px;
+    font-family: Forum;
+    font-size: 18px;
+    font-weight: 400;
+    letter-spacing: 0.45px;
+}
+.qcol-autho input.hidden{
+    height: 0px;
+    border-bottom: 0px solid #a8a8a8;
+    opacity: 0;
+    cursor: context-menu;
+}
+h2.hidden ,.registration_btn.hidden{
+    font-size: 0px;
+    transition: 1s;
+    text-align: center;
+    width: 100%;
+}
+.hidden:hover{
+    border-bottom: 0px solid #a8a8a8;
+
+}
+/* Подвал */
+.logo_footer{
+    display: flex;
+    justify-content: center;
+    border-top: 1px solid #c5994e;
+    padding: 10px 0px 10px 0px;
+}
+footer{
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 7vh;
+    background-color: #0d0d17;
+    width: 100%;
+    transition: 0.3s;
+    cursor: pointer;
+    z-index: 3;
+}
+footer:hover{
+    height: 8vh;
+}
+footer.action{
+    height: 40vh;
+    border-top: 1px solid #c5994e;
+}
+footer.action .logo_footer{
+    border-top: 0px solid #c5994e;
+}
+@media (max-width: 1025px){
+    .logo{
+        height: 200px;
+    }
+}
+@media (max-width: 500px){
+    .logo img{
+        width: 100%;
+        height: auto;
+    }.qcol-info {
+        min-height: 200px;
+    }
+    .autho{
+        overflow-y: auto;
+    }
+    .qcol-autho{
+        background-color: rgb(46, 46, 46);
+        border-radius: 10px;
+        margin: 12px;
+    }
+}

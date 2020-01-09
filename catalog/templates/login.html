@@ -1,0 +1,32 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+        <div class="row">
+            <div class="col-md-4 qcol-info">
+               <div class="qcol-info_line info_line_hover1"></div>
+                    <p><span> Qvinciy </span>- это рейтинг людей по всему миру, зависящий от цены купленного места</p>
+               <div class="qcol-info_line info_line_hover2"></div>
+            </div>
+            <div class="col-md-4 qcol-autho">
+                <h2 class="reg_h2">Регистрация</h2>
+                <form action="" class="form_autho">
+                    {% csrf_token %}
+                    {{ form }}
+                    <input type="text" placeholder="Логин">
+                    <input type="text" placeholder="Пароль">
+                    <input type="text" class="reg_input hidden" placeholder="Повторить пароль">
+                    <button>Войти</button>
+                </form>
+                <div>
+                    <div class="registration_btn reg_btn">Регистрация</div>
+                    <div class="qcol-info_line info_line_hover2"></div>
+                    <a href="#" class="later_password">Забыл пароль</a>
+                </div>
+            </div>
+            <div class="col-md-4 qcol-info">
+                <div class="qcol-info_line info_line_hover1"></div>
+                    <p> В свою очередь, место - это показатель того, насколько Вы признаны в рейтинге за счет своих денежных средств среди остальных участников</p>
+                <div class="qcol-info_line info_line_hover2"></div>
+            </div>
+        </div>
+{% endblock %}
