@@ -9,6 +9,9 @@ body{
     -webkit-overflow-scrolling: touch;
 }
 /* Авторизация */
+.errorlist{
+    color: red;
+}
 .autho{
 
     background-color: #0d0d17;

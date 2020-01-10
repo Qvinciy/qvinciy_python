@@ -1,55 +1,77 @@
 from django import forms
+from django.forms.widgets import Input
 from django.shortcuts import render
 from django.views.generic.edit import FormView
+from django.forms.utils import ErrorList
 from django.contrib.auth.forms import UserCreationForm, UsernameField
+
+from django.utils.html import format_html, format_html_join
 
 from .models import Book, QUser
 
 
-def index(request):
-	num_books = Book.objects.all().count()
-	num_users = QUser.objects.all().count()
+class QErrorList(ErrorList):
 
-	return render(
-		request,
-		'index.html',
-		context={'num_books': num_books, 'num_users': num_users},
-	)
+	def as_ul(self):
+		if not self.data:
+			return ''
+
+		return format_html(
+			'<ul class="{}">{}</ul>',
+			self.error_class,
+			format_html_join('', '<li>{}</li>', ((e,) for e in self))
+		)
+
+
+class QTextInput(Input):
+	input_type = 'text'
+	template_name = 'text.html'
+
+
+class QPasswordInput1(forms.PasswordInput):
+	template_name = 'password1.html'
+
+
+class QPasswordInput2(forms.PasswordInput):
+	template_name = 'password2.html'
+
+
+class QUsernameField(UsernameField):
+	pass
+
+
+class QCharField(forms.CharField):
+	def __init__(self, **kwargs):
+		super().__init__(**kwargs)
 
 
 class QUserCreationForm(UserCreationForm):
-	password1 = forms.CharField(
-		widget=forms.PasswordInput(attrs={'autocomplete': 'new-password'})
+	password1 = QCharField(
+		widget=QPasswordInput1(attrs={'autocomplete': 'new-password'})
 	)
 
-	password2 = forms.CharField(
-		widget=forms.PasswordInput(attrs={'autocomplete': 'new-password'}),
+	password2 = QCharField(
+		widget=QPasswordInput2(attrs={'autocomplete': 'new-password'}),
 	)
+
+	def __init__(self, *args, **kwargs):
+		super().__init__(error_class=QErrorList, *args, **kwargs)
+		if self._meta.model.USERNAME_FIELD in self.fields:
+			self.fields[self._meta.model.USERNAME_FIELD].widget = QTextInput(attrs={'autofocus': True})
 
 	class Meta:
 		model = QUser
 		fields = ("username",)
-		field_classes = {'username': UsernameField}
+		field_classes = {'username': QUsernameField}
 
-	def clean_password2(self):
-		password1 = self.cleaned_data.get("password1")
-		password2 = self.cleaned_data.get("password2")
-		print(password2)
-
-		if password1 and password2 and password1 != password2:
-			raise forms.ValidationError(
-				self.error_messages['password_mismatch'],
-				code='password_mismatch',
-			)
-		return password2
-
-	def save(self, commit=True):
-		print("save")
-		user = super().save(commit=False)
-		user.set_password(self.cleaned_data["password1"])
-		if commit:
-			user.save()
-		return user
+	def as_p(self):
+		return self._html_output(
+			normal_row='%(field)s',
+			error_row='%s',
+			row_ender='',
+			help_text_html='',
+			errors_on_separate_row=True,
+		)
 
 
 class RegisterFormView(FormView):
@@ -62,3 +84,14 @@ class RegisterFormView(FormView):
 	def form_valid(self, form):
 		form.save()
 		return super(RegisterFormView, self).form_valid(form)
+
+
+def index(request):
+	num_books = Book.objects.all().count()
+	num_users = QUser.objects.all().count()
+
+	return render(
+		request,
+		'index.html',
+		context={'num_books': num_books, 'num_users': num_users},
+	)
