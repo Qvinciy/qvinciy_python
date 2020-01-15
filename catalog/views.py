@@ -9,6 +9,11 @@ from django.utils.html import format_html, format_html_join
 
 from .models import Book, QUser
 
+from rest_framework.response import Response
+from rest_framework.views import APIView
+
+from .serializers import UserSerializer
+
 
 class QErrorList(ErrorList):
 
@@ -95,3 +100,10 @@ def index(request):
 		'index.html',
 		context={'num_books': num_books, 'num_users': num_users},
 	)
+
+
+class QUserView(APIView):
+	def get(self, request):
+		users = QUser.objects.all()
+		serializer = UserSerializer(users, many=True)
+		return Response({"users": serializer.data})

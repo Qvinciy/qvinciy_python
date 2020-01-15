@@ -23,4 +23,21 @@ $(function(){
         $(".reg_input").toggleClass('hidden');
         
     })
+    $(".form_autho button").click(function() {
+        $(".autho").toggleClass('transform_Up');
+
+    })
+    $('.header_table input').on('input', function(){
+        var str = $(this).val().toLowerCase();
+        if (str.length <= 0){
+                $('.body_table > div').show();
+                }
+            else {
+            $('.body_table > div').each(function(){
+                if ($(this).text().toLowerCase().indexOf(str) < 0){
+                $(this).hide();
+                }
+            });
+        }
+    });
 });

@@ -1,13 +1,14 @@
+
 <!DOCTYPE html>
 <html lang="ru">
 <head>
 
-        <title>Создание сайтов и дизайна! Закажите работу у нас и вы получите отличный результат :/</title>
+        <title>Q v i n c i y</title>
 
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device=width, initial-scale=1.0"> <!-- для моб. девайсов -->
-        <meta name="description" content="Находим в каждом проекте свои особенности, фишки и преимущества, поэтому наши дизайны действительно являются индивидуальными и становятся визитной карточкой компании. :/">
-        <meta name="keywords" content="Дизайн, Сайт, Студия, Москва :/">
+        <meta name="description" content="Q v i n c i y">
+        <meta name="keywords" content="Q v i n c i y">
         <link rel="shortcut icon" type="image/x-icon" href="/static/img/favicon.ico"> <!-- фавиконка -->
 
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.css">
@@ -26,12 +27,50 @@
 <div class="autho">
     <div class="container">
         <div class="logo">
-            <a href="/">
+            <a href="index.php">
                 <img src="/static/img/GYxzqd1.png" alt="">
             </a>
         </div>
   {% block content %}<!-- default content text (typically empty) -->{% endblock %}
 
+   </div>
+</div>
+<div class="table_main">
+    <div class="container">
+        <div class="row header_table">
+            <div class="col-md-4">
+                <h2>Ранг ^</h2>
+            </div>
+            <div class="col-md-4">
+                <h2>Номен</h2>
+                <input type="text" placeholder="будущий поиск">
+            </div>
+            <div class="col-md-4">
+                <h2>Ассет</h2>
+            </div>
+        </div>
+        <div class="row body_table">
+            <!-- человек -->
+            <div class="col-md-12">
+                <div class="">
+                    <p>2</p>
+                </div>
+                <div class="">
+                    <p>Имя</p>
+                </div>
+                <div class="">
+                    <p>12388</p>
+                </div>
+
+            </div>
+            <script>
+                let i = 40
+                while(i){
+                    document.write('<div class="col-md-12"><div class=""><p>1</p></div><div class=""><p>Номен</p></div><div class=""><p>661</p></div></div>')
+                    i--;
+                }
+            </script>
+        </div>
     </div>
 </div>
 <footer>
@@ -40,14 +79,23 @@
             <div class="col-md-12 logo_footer">
                 <img src="/static/img/oBRvUSw.png" alt="">
             </div>
-            <div class="col-md-12">
-                <!-- Удалите потом этот абзац -->
-                <p style="color:#fff;text-align: center;padding: 30px;">TEST: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum eaque dicta libero in ullam necessitatibus? Quaerat cupiditate odit quam nobis odio, quas qui enim molestias nisi voluptas ut reiciendis. Voluptates.</p>
-                <!-- //Удалите потом этот абзац (и комментарй)-->
+            <div class="col-md-4 footer_content">
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatum magnam labore officiis cupiditate veniam hic rerum eum autem distinctio quaerat ipsam aut accusantium omnis doloribus cumque quis eius, fugiat odit!
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatum magnam labore officiis cupiditate veniam hic rerum eum autem distinctio quaerat ipsam aut accusantium omnis doloribus cumque quis eius, fugiat odit!
+            </div>
+            <div class="col-md-4 footer_content">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil quidem provident ad nisi temporibus. Exercitationem neque veritatis, fuga obcaecati, dolorem consequuntur accusamus vel vero iusto quia odio repudiandae error voluptatibus.
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil quidem provident ad nisi temporibus. Exercitationem neque veritatis, fuga obcaecati, dolorem consequuntur accusamus vel vero iusto quia odio repudiandae error voluptatibus.
+            </div>
+            <div class="col-md-4 footer_content">
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Deleniti minima eius repudiandae velit rerum odit aliquam blanditiis soluta, accusamus cupiditate labore consectetur quo dolorem eum voluptate doloribus possimus ipsam vitae.
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Deleniti minima eius repudiandae velit rerum odit aliquam blanditiis soluta, accusamus cupiditate labore consectetur quo dolorem eum voluptate doloribus possimus ipsam vitae.
             </div>
         </div>
     </div>
 </footer>
 <script src="/static/js/script.js"></script>
+
+
 </body>
 </html>
