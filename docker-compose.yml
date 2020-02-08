@@ -1,0 +1,38 @@
+version: '3'
+
+services:
+  db:
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: qvinciy
+      POSTGRES_USER: qvinciy
+      POSTGRES_DB: qvinciy
+
+  web:
+    build: .
+    command: python3 manage.py runserver 0.0.0.0:8000
+    volumes:
+      - .:/code
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+      - migrate
+
+  makemigrations:
+    build: .
+    command: python3 manage.py makemigrations
+    volumes:
+      - .:/code
+    depends_on:
+      - db
+
+  migrate:
+    build: .
+    command: python3 manage.py migrate
+    volumes:
+      - .:/code
+    depends_on:
+      - db
+      - makemigrations
