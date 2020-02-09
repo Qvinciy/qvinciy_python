@@ -43,7 +43,8 @@ DATABASES = {
     python3 manage.py createsuperuser
 
 ### START
-
+    git clone https://github.com/Qvinciy/qvinciy_python
+    cd qvinciy_python
     docker-compose up
 
 ##### OR
