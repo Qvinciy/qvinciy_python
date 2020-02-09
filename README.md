@@ -1,16 +1,48 @@
 # qvinciy_python
 
-#### DATABASES
+### DATABASES
 
     /qvinciy/settings.py
 
     https://docs.djangoproject.com/en/1.10/ref/settings/#databases
+    
+##### if start 127.0.0.1
+``` 
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'qvinciy',
+        'USER': 'qvinciy',
+        'PASSWORD': 'qvinciy',
+        'HOST': '127.0.0.1',
+        'PORT': '5432',
+    }
+}
+```
 
-#### create admin
+##### if start docker-compose
+
+    https://docs.docker.com/install
+    https://docs.docker.com/compose/install/
+    
+``` 
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'qvinciy',
+        'USER': 'qvinciy',
+        'PASSWORD': 'qvinciy',
+        'HOST': 'db',
+        'PORT': '5432',
+    }
+}
+```
+
+### create admin
 
     python3 manage.py createsuperuser
 
-#### START
+### START
 
     docker-compose up
 
@@ -31,6 +63,6 @@
     python3 manage.py runserver
 
     
-#### STOP
+### STOP
 
     docker-compose down
