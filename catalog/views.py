@@ -3,7 +3,11 @@ from django.forms.widgets import Input
 from django.shortcuts import render
 from django.views.generic.edit import FormView
 from django.forms.utils import ErrorList
-from django.contrib.auth.forms import UserCreationForm, UsernameField
+from django.contrib.auth.forms import UserCreationForm, UsernameField, AuthenticationForm
+
+from django.contrib.auth import (
+	authenticate, login
+)
 
 from django.utils.html import format_html, format_html_join
 
@@ -16,7 +20,6 @@ from .serializers import UserSerializer
 
 
 class QErrorList(ErrorList):
-
 	def as_ul(self):
 		if not self.data:
 			return ''
@@ -51,8 +54,7 @@ class QCharField(forms.CharField):
 
 
 class QUserCreationForm(UserCreationForm):
-
-	users_list = QUser.objects.order_by('rating').all()
+	users_list = QUser.objects.order_by('-rating').all()
 
 	password1 = QCharField(
 		widget=QPasswordInput1(attrs={'autocomplete': 'new-password'})
@@ -83,9 +85,26 @@ class QUserCreationForm(UserCreationForm):
 
 
 class RegisterFormView(FormView):
+
+	def setup(self, request, *args, **kwargs):
+		self.request = request
+		self.args = args
+		self.kwargs = kwargs
+
+		password2 = request.POST.get('password2', '0')
+		if password2 == '1':
+			username = request.POST.get('username', '')
+			password1 = request.POST.get('password1', '')
+			if username != '' and password1 != '':
+				try:
+					self.request.user = authenticate(request=self.request, username=username, password=password1)
+					login(request, self.request.user)
+				except Exception as ex:
+					print(ex)
+
 	form_class = QUserCreationForm
 
-	success_url = "/catalog/login/"
+	success_url = "/"
 
 	template_name = "login_authenticated.html"
 

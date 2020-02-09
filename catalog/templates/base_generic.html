@@ -92,7 +92,6 @@
           </div>
         </div>
       </div>
-{% if user.is_authenticated %}
       <div class="wrapper-list">
         <div class="content-list-hidden" id="content-list">
           <div class="content-list-wrapper">
@@ -100,7 +99,7 @@
               <input placeholder="Поиск" class="search" type="search" />
               <!-- /.search -->
             </div>
-
+{% if user.is_authenticated %}
             <div class="header-list">
               <p>Ранг</p>
               <p>Номен</p>
@@ -111,7 +110,7 @@
             <div class="list">
               <ul class="ul" id="ul">
 {% for user in form.users_list %}
-<li id="li">
+<li id="li{{ user.id }}">
                   <div id="wrapperLi">
                     <div id="left-number" class="left-number">
                       <a href="#">{{ user.rating }}</a>
@@ -125,6 +124,7 @@
 {% endfor %}
               </ul>
             </div>
+{% endif %}
           </div>
 
           <div class="left-panel-wrapper">
@@ -206,7 +206,6 @@
           </div>
         </div>
       </div>
-{% endif %}
     </div>
 
     <script src="/static/js/script.js"></script>
