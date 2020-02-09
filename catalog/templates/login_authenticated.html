@@ -1,0 +1,21 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+    {% if user.is_authenticated %}
+    {% else %}
+        <div class="center-form">
+            <form action="/catalog/login/" method="post">
+                <h1>Авторизация</h1>
+                {% csrf_token %}
+                {{ form.as_p }}
+
+                <button type="button" class="sign-in">ВОЙТИ</button>
+
+                <a href="#" class="registration reg">Регистрация</a>
+                <a href="#" class="registration signIn">Войти</a>
+                <hr />
+                <a href="#" class="forgot">Забыл пароль</a>
+            </form>
+        </div>
+    {% endif %}
+{% endblock %}

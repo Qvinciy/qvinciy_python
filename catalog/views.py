@@ -7,7 +7,7 @@ from django.contrib.auth.forms import UserCreationForm, UsernameField
 
 from django.utils.html import format_html, format_html_join
 
-from .models import Book, QUser
+from .models import Book, QUser, UserProfile
 
 from rest_framework.response import Response
 from rest_framework.views import APIView
@@ -51,6 +51,9 @@ class QCharField(forms.CharField):
 
 
 class QUserCreationForm(UserCreationForm):
+
+	users_list = QUser.objects.order_by('rating').all()
+
 	password1 = QCharField(
 		widget=QPasswordInput1(attrs={'autocomplete': 'new-password'})
 	)
@@ -84,7 +87,7 @@ class RegisterFormView(FormView):
 
 	success_url = "/catalog/login/"
 
-	template_name = "login.html"
+	template_name = "login_authenticated.html"
 
 	def form_valid(self, form):
 		form.save()
@@ -92,13 +95,12 @@ class RegisterFormView(FormView):
 
 
 def index(request):
-	num_books = Book.objects.all().count()
 	num_users = QUser.objects.all().count()
 
 	return render(
 		request,
 		'index.html',
-		context={'num_books': num_books, 'num_users': num_users},
+		context={'num_users': num_users},
 	)
 
 

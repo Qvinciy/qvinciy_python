@@ -1,101 +1,219 @@
-
 <!DOCTYPE html>
-<html lang="ru">
-<head>
-
-        <title>Q v i n c i y</title>
-
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device=width, initial-scale=1.0"> <!-- для моб. девайсов -->
-        <meta name="description" content="Q v i n c i y">
-        <meta name="keywords" content="Q v i n c i y">
-        <link rel="shortcut icon" type="image/x-icon" href="/static/img/favicon.ico"> <!-- фавиконка -->
-
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.css">
-        <link rel="stylesheet" href="/static/css/main.css"> <!-- CSS -->
-
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous"> <!-- Bootstrap CSS -->
-
-</head>
-<body>
-    <!-- Чтобы сделать верстку шире, замените conatiner на conatiner-fluid -->
-<header>
-</header>
-<div class="autho">
-    <div class="container">
-        <div class="logo">
-            <a href="index.php">
-                <img src="/static/img/GYxzqd1.png" alt="">
-            </a>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Qvinciy</title>
+	 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <!--Подключаем стили-->
+    <link rel="stylesheet" href="/static/css/normalize.css" />
+    <link rel="stylesheet" href="/static/css/style.css" />
+    <!--Подключаем шрифты-->
+    <link rel="shortcut icon" type="image/x-icon" href="/static/img/favicon.ico"> <!-- фавиконка -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Forum&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Source+Code+Pro:400,500,700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto+Condensed:300,400,700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="logo"><img src="/static/img/adminLogo.png" alt="#" /></div>
+      <div class="content">
+        <div class="left-description">
+          <hr />
+          <p>
+            <span class="color-text">Qvinciy</span> — это рейтинг людей по всему
+            миру. зависящий от цены купленного места
+          </p>
+          <hr />
         </div>
+
   {% block content %}<!-- default content text (typically empty) -->{% endblock %}
 
-   </div>
-</div>
-<div class="table_main">
-    <div class="container">
-        <div class="row header_table">
-            <div class="col-md-4">
-                <h2>Ранг ^</h2>
-            </div>
-            <div class="col-md-4">
-                <h2>Номен</h2>
-                <input type="text" placeholder="будущий поиск">
-            </div>
-            <div class="col-md-4">
-                <h2>Ассет</h2>
-            </div>
+        <div class="right-description">
+          <hr />
+          <p>
+            В свою очередь, место - это показатель того, насколько Вы признаны в
+            рейтинге за счёт своих денежных средств среди остальных участников
+          </p>
+          <hr />
         </div>
-        <div class="row body_table">
-            <!-- человек -->
-            <div class="col-md-12">
-                <div class="">
-                    <p>2</p>
-                </div>
-                <div class="">
-                    <p>Имя</p>
-                </div>
-                <div class="">
-                    <p>12388</p>
-                </div>
+      </div>
+      <div
+        class="footer"
+        id="footer"
+        onmouseover="footerUp()"
+        onmouseout="footerDown()"
+      >
+        <hr class="before-line" id="line" />
+        <img src="/static/img/logo.png" alt="" />
+        <div class="content">
+          <div class="left-footer-description">
+            <h1>Подробнее</h1>
+            <hr />
+            <p>
+              <span>Qvinciy -</span> это рейтинг людей по всему миру, зависящий
+              от цены купленного места. В свою очередь, место - это показатель
+              того, насколько Вы признаны в рейтинге за счёт своих денежных
+              средств среди остальных участников.
+            </p>
+          </div>
+          <hr id="between-description" />
+          <div class="center-footer-description">
+            <h1>Договор публичной оферты</h1>
+            <hr />
+            <p>
+              Настоящий договор между владельцами сайта в сети интернет
+              Гаврилова Никиты Александровича и пользователем услуг сайта в сети
+              интернет: именуемым в дальнейшем "покупатель" определяет условия
+              приобретения услуги через сайт *** Настоящий договор - оферта
+              действует с 01 Августа 2019 года.
+            </p>
+          </div>
+          <hr id="between-description" />
+          <div class="right-footer-description">
+            <h1>Пользовательское соглашение</h1>
+            <hr />
+            <p>
+              Настоящее Пользовательское соглашение отвечаю бл* буду регулирует
+              отношения пользователем сети Интернет и владельцем сайта в сети
+              интернет *** при использовании интернет-ресурса *** на условиях,
+              указанных в Пользовательском соглашении.
+            </p>
+          </div>
+        </div>
+      </div>
+{% if user.is_authenticated %}
+      <div class="wrapper-list">
+        <div class="content-list-hidden" id="content-list">
+          <div class="content-list-wrapper">
+            <div class="search-wrapper">
+              <input placeholder="Поиск" class="search" type="search" />
+              <!-- /.search -->
+            </div>
 
+            <div class="header-list">
+              <p>Ранг</p>
+              <p>Номен</p>
+              <p>Ассет</p>
             </div>
-            <script>
-                let i = 40
-                while(i){
-                    document.write('<div class="col-md-12"><div class=""><p>1</p></div><div class=""><p>Номен</p></div><div class=""><p>661</p></div></div>')
-                    i--;
-                }
-            </script>
+            <hr class="header-list-line" />
+
+            <div class="list">
+              <ul class="ul" id="ul">
+{% for user in form.users_list %}
+<li id="li">
+                  <div id="wrapperLi">
+                    <div id="left-number" class="left-number">
+                      <a href="#">{{ user.rating }}</a>
+                    </div>
+                    <div class="center-number">
+                      <a href="#openModal">{{ user }}</a>
+                    </div>
+                    <div class="right-number"><a href="#">{{ user.price }}</a></div>
+                  </div>
+</li>
+{% endfor %}
+              </ul>
+            </div>
+          </div>
+
+          <div class="left-panel-wrapper">
+            <div class="arrow"><i class="fas fa-sort-down"></i></div>
+            <!-- /.arrow -->
+            <div class="left-panel">
+              <a class="social-link" href=""
+                ><img src="/static/img/social/mail.png" alt="#"
+              /></a>
+              <a class="social-link" href=""
+                ><img src="/static/img/social/telegram.png" alt="#"
+              /></a>
+              <a class="social-link" href=""
+                ><img src="/static/img/social/facebook.png" alt="#"
+              /></a>
+              <a class="social-link" href=""
+                ><img src="/static/img/social/vk.png" alt="#"
+              /></a>
+            </div>
+            <!-- /.left-panel -->
+          </div>
+          <!-- /.left-panel-wrapper -->
+
+          <div id="openModal" class="modal">
+            <div class="modal-dialog">
+              <a href="#close" title="Close" class="close">
+                <img src="/static/img/close.png" alt="#" />
+              </a>
+              <div class="modal-content">
+                <div class="modal-container">
+                  <div class="info-wrapper">
+                    <div class="info-logo">
+                      <img src="/static/img/avatar.png" alt="#" />
+                    </div>
+
+                    <div class="info">
+                      <div class="info-inf">
+                        <p class="nomen">Номен</p>
+                        <p class="nickname">Просроченное молоко</p>
+                      </div>
+                      <div class="info-inf">
+                        <div class="asset-wrapper">
+                          <p class="asset">Ассет</p>
+                          <p>13500</p>
+                        </div>
+                        <div class="asset-wrapper rank-wrapper">
+                          <p class="rank">Ранг</p>
+                          <p>1000</p>
+                        </div>
+                      </div>
+                      <div class="info-inf">
+                        <p class="fraction">Фракция</p>
+                        <p>Просроченное молоко</p>
+                      </div>
+                    </div>
+
+                    <div class="social">
+                      <a class="social-link" href="#"
+                        ><img src="/static/img/social/VK logo.png" alt="#"
+                      /></a>
+                      <a class="social-link" href="#"
+                        ><img src="/static/img/social/Instagram logo.png" alt="#"
+                      /></a>
+                      <a class="social-link" href="#"
+                        ><img src="/static/img/social/Twitter logo.png" alt="#"
+                      /></a>
+                    </div>
+                  </div>
+                  <!-- /.info-wrapper -->
+                  <div class="dop-inf">
+                    <p class="dop-information">Информация</p>
+                    <p>лолололол</p>
+                  </div>
+                  <!-- /.dop-inf -->
+                </div>
+                <!-- /.modal-container -->
+              </div>
+            </div>
+          </div>
         </div>
+      </div>
+{% endif %}
     </div>
-</div>
-<footer>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12 logo_footer">
-                <img src="/static/img/oBRvUSw.png" alt="">
-            </div>
-            <div class="col-md-4 footer_content">
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatum magnam labore officiis cupiditate veniam hic rerum eum autem distinctio quaerat ipsam aut accusantium omnis doloribus cumque quis eius, fugiat odit!
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatum magnam labore officiis cupiditate veniam hic rerum eum autem distinctio quaerat ipsam aut accusantium omnis doloribus cumque quis eius, fugiat odit!
-            </div>
-            <div class="col-md-4 footer_content">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil quidem provident ad nisi temporibus. Exercitationem neque veritatis, fuga obcaecati, dolorem consequuntur accusamus vel vero iusto quia odio repudiandae error voluptatibus.
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil quidem provident ad nisi temporibus. Exercitationem neque veritatis, fuga obcaecati, dolorem consequuntur accusamus vel vero iusto quia odio repudiandae error voluptatibus.
-            </div>
-            <div class="col-md-4 footer_content">
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Deleniti minima eius repudiandae velit rerum odit aliquam blanditiis soluta, accusamus cupiditate labore consectetur quo dolorem eum voluptate doloribus possimus ipsam vitae.
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Deleniti minima eius repudiandae velit rerum odit aliquam blanditiis soluta, accusamus cupiditate labore consectetur quo dolorem eum voluptate doloribus possimus ipsam vitae.
-            </div>
-        </div>
-    </div>
-</footer>
-<script src="/static/js/script.js"></script>
 
-
-</body>
+    <script src="/static/js/script.js"></script>
+    {% if user.is_authenticated %}
+      <script>
+          listOpen()
+      </script>
+    {% endif %}
+  </body>
 </html>
