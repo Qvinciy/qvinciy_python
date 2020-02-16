@@ -24,6 +24,7 @@ from catalog import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('catalog/', include('catalog.urls')),
+    path('logout/', views.QLogoutView.as_view(), name='logout'),
     path('', views.RegisterFormView.as_view())
 ]
 

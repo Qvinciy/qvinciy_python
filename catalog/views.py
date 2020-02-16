@@ -1,4 +1,5 @@
 from django import forms
+from django.contrib.auth.views import LogoutView
 from django.forms.widgets import Input
 from django.shortcuts import render
 from django.views.generic.edit import FormView
@@ -6,7 +7,7 @@ from django.forms.utils import ErrorList
 from django.contrib.auth.forms import UserCreationForm, UsernameField, AuthenticationForm
 
 from django.contrib.auth import (
-	authenticate, login
+	authenticate, login, logout
 )
 
 from django.utils.html import format_html, format_html_join
@@ -54,6 +55,7 @@ class QCharField(forms.CharField):
 
 
 class QUserCreationForm(UserCreationForm):
+	num_users = QUser.objects.all().count()
 	users_list = QUser.objects.order_by('-rating').all()
 
 	password1 = QCharField(
@@ -111,6 +113,11 @@ class RegisterFormView(FormView):
 	def form_valid(self, form):
 		form.save()
 		return super(RegisterFormView, self).form_valid(form)
+
+
+class QLogoutView(LogoutView):
+	success_url = "/"
+	next_page = "/"
 
 
 def index(request):

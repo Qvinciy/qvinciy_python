@@ -3,7 +3,7 @@
 {% block content %}
     {% if user.is_authenticated %}
     {% else %}
-        <div class="center-form">
+        <div class="center-form animated fadeInUp">
             <form action="/" method="post">
                 <h1>Авторизация</h1>
                 {% csrf_token %}
