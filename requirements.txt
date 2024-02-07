@@ -1,4 +1,4 @@
-django==3.1.14
+django==3.2.24
 djangorestframework==3.11.2
 psycopg2-binary==2.8.4
 pillow==10.0.1
